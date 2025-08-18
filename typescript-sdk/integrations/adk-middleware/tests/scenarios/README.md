@@ -53,6 +53,12 @@ python run.py scenario_name
 - **Expected Output**: Streaming LLM response with state updates from callbacks
 - **Fixture**: Contains 8 events showing streaming chunks with state updates before/after agent execution
 
+### 4. streaming_tool_function_call
+- **Purpose**: Tests streaming LLM responses with function tool usage
+- **Input**: User message requesting explicit tool usage ("Make magic via tool with 2 numbers: 5 and 10")
+- **Expected Output**: Function call, function response, and streaming text response
+- **Fixture**: Contains 5 events showing function call → function response → streaming text chunks → final response
+
 ## Fixture Generation
 
 - **Deterministic**: Fixtures are generated with consistent IDs and timestamps
@@ -103,7 +109,34 @@ async def run_scenario(collector) -> None:
 
 - **Use streaming** when you need to test partial response handling
 - **Use non-streaming** for simpler scenarios testing basic functionality
+- **Function tools**: Work with both streaming and non-streaming modes
 - **Dependencies**: Streaming requires `aiohttp` (install with `uv add aiohttp`)
+
+### Function Tools with Streaming
+
+Function tools can be added to agents and work seamlessly with streaming:
+
+```python
+def magic_with_two_numbers(first_number: int, second_number: int) -> int:
+    """Simple tool that adds two numbers."""
+    return first_number + second_number
+
+async def run_scenario(collector) -> None:
+    agent = LlmAgent(
+        name="tool_agent",
+        model="gemini-2.0-flash-exp",
+        instruction="Use the tool when requested",
+        tools=[magic_with_two_numbers]  # Add function tools here
+    )
+    
+    run_config = RunConfig(streaming_mode=StreamingMode.SSE)
+    await run_in_memory_agent_scenario(
+        agent=agent,
+        user_message="Make magic via tool with 2 numbers: 5 and 10",
+        collector=collector,
+        run_config=run_config
+    )
+```
 
 ## Writing Scenarios
 

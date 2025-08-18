@@ -73,17 +73,59 @@ class EventCollector:
         if 'timestamp' in normalized:
             normalized['timestamp'] = 1234567890.123456
         
+        # Normalize function call IDs for deterministic fixtures
+        self._normalize_function_call_ids(normalized)
+        
         # Remove collected_at as it's always dynamic
         if 'collected_at' in normalized:
             del normalized['collected_at']
         
         return normalized
+    
+    def _normalize_function_call_ids(self, obj: Any) -> None:
+        """Recursively normalize function call IDs to deterministic values."""
+        if isinstance(obj, dict):
+            for key, value in obj.items():
+                if key == 'functionCall' and isinstance(value, dict) and 'id' in value:
+                    # Replace dynamic function call ID with deterministic one
+                    value['id'] = 'function_call_1'
+                elif key == 'functionResponse' and isinstance(value, dict) and 'id' in value:
+                    # Replace dynamic function response ID with deterministic one
+                    value['id'] = 'function_call_1'
+                else:
+                    self._normalize_function_call_ids(value)
+        elif isinstance(obj, list):
+            for item in obj:
+                self._normalize_function_call_ids(item)
+    
+    def _convert_sets_to_lists(self, obj: Any) -> Any:
+        """Recursively convert sets to lists for JSON serialization."""
+        if isinstance(obj, set):
+            return sorted(list(obj))  # Convert set to sorted list for determinism
+        elif isinstance(obj, dict):
+            return {key: self._convert_sets_to_lists(value) for key, value in obj.items()}
+        elif isinstance(obj, list):
+            return [self._convert_sets_to_lists(item) for item in obj]
+        else:
+            return obj
 
     def collect_event(self, event: Event) -> None:
         """Collect an ADK event for later storage."""
-        event_dict = event.model_dump(by_alias=True)
-        normalized_dict = self._normalize_event_dict(event_dict)
-        self.events.append(normalized_dict)
+        try:
+            event_dict = event.model_dump(by_alias=True)
+            # Convert sets to lists for JSON serialization
+            event_dict = self._convert_sets_to_lists(event_dict)
+            normalized_dict = self._normalize_event_dict(event_dict)
+            self.events.append(normalized_dict)
+        except Exception as e:
+            logger.error(f"Error collecting event: {e}")
+            # Create a minimal event representation
+            error_event = {
+                'id': f'error_event_{len(self.events) + 1}',
+                'error_message': f'Failed to serialize event: {str(e)}',
+                'timestamp': 1234567890.123456
+            }
+            self.events.append(error_event)
         
     def collect_llm_response(self, response: LlmResponse) -> None:
         """Collect an LLM response for later storage."""
