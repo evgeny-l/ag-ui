@@ -47,6 +47,12 @@ python run.py scenario_name
 - **Expected Output**: Callback response instead of LLM response
 - **Fixture**: Contains callback response with no usage metadata
 
+### 3. streaming_message_with_states
+- **Purpose**: Tests streaming LLM responses with before/after agent callbacks updating session state
+- **Input**: User message with initial session state
+- **Expected Output**: Streaming LLM response with state updates from callbacks
+- **Fixture**: Contains 8 events showing streaming chunks with state updates before/after agent execution
+
 ## Fixture Generation
 
 - **Deterministic**: Fixtures are generated with consistent IDs and timestamps
@@ -55,6 +61,49 @@ python run.py scenario_name
   - `invocationId`: `invocation_1`, `invocation_2`, etc.
   - `id`: `event_1`, `event_2`, etc.
   - `timestamp`: Fixed value `1234567890.123456`
+
+## Streaming Mode
+
+### Enabling Streaming
+
+To capture streaming events (multiple partial responses), use `RunConfig` with `StreamingMode.SSE`:
+
+```python
+from google.adk.runners import RunConfig
+from google.adk.agents.run_config import StreamingMode
+
+async def run_scenario(collector) -> None:
+    # Create agent
+    agent = LlmAgent(
+        name="streaming_agent",
+        model="gemini-2.0-flash-exp",
+        instruction="Your instruction here"
+    )
+    
+    # Create RunConfig with streaming enabled
+    run_config = RunConfig(streaming_mode=StreamingMode.SSE)
+    
+    # Use utility function with streaming config
+    await run_in_memory_agent_scenario(
+        agent=agent,
+        user_message="Your message",
+        collector=collector,
+        run_config=run_config  # Enable streaming
+    )
+```
+
+### Streaming vs Non-Streaming Events
+
+- **Non-streaming**: Generates fewer events (typically 1-3)
+  - Before callback → Complete response → After callback
+- **Streaming**: Generates many events (typically 5-10+)
+  - Before callback → Partial chunk 1 → Partial chunk 2 → ... → Final complete response → After callback
+
+### When to Use Streaming
+
+- **Use streaming** when you need to test partial response handling
+- **Use non-streaming** for simpler scenarios testing basic functionality
+- **Dependencies**: Streaming requires `aiohttp` (install with `uv add aiohttp`)
 
 ## Writing Scenarios
 
@@ -75,6 +124,7 @@ python run.py scenario_name
 Available workflow utilities in `runner_utils.py`:
 - `run_simple_agent_scenario()` - Basic agent with `Runner`
 - `run_in_memory_agent_scenario()` - Agent with `InMemoryRunner`
+- Both functions support optional `run_config` parameter for streaming
 - Check `runner_utils.py` for the latest available utilities
 
 #### **4. Clean Structure**

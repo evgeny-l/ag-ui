@@ -1,0 +1,428 @@
+{
+  "events": [
+    {
+      "actions": {
+        "artifactDelta": {},
+        "escalate": null,
+        "requestedAuthConfigs": {},
+        "skipSummarization": null,
+        "stateDelta": {
+          "processing_step": "started"
+        },
+        "transferToAgent": null
+      },
+      "author": "StateUpdatingAgent",
+      "branch": null,
+      "content": null,
+      "customMetadata": null,
+      "errorCode": null,
+      "errorMessage": null,
+      "groundingMetadata": null,
+      "id": "event_1",
+      "interrupted": null,
+      "invocationId": "invocation_1",
+      "liveSessionResumptionUpdate": null,
+      "longRunningToolIds": null,
+      "partial": null,
+      "timestamp": 1234567890.123456,
+      "turnComplete": null,
+      "usageMetadata": null
+    },
+    {
+      "actions": {
+        "artifactDelta": {},
+        "escalate": null,
+        "requestedAuthConfigs": {},
+        "skipSummarization": null,
+        "stateDelta": {},
+        "transferToAgent": null
+      },
+      "author": "StateUpdatingAgent",
+      "branch": null,
+      "content": {
+        "parts": [
+          {
+            "codeExecutionResult": null,
+            "executableCode": null,
+            "fileData": null,
+            "functionCall": null,
+            "functionResponse": null,
+            "inlineData": null,
+            "text": "1",
+            "thought": null,
+            "thoughtSignature": null,
+            "videoMetadata": null
+          }
+        ],
+        "role": "model"
+      },
+      "customMetadata": null,
+      "errorCode": null,
+      "errorMessage": null,
+      "groundingMetadata": null,
+      "id": "event_2",
+      "interrupted": null,
+      "invocationId": "invocation_1",
+      "liveSessionResumptionUpdate": null,
+      "longRunningToolIds": null,
+      "partial": true,
+      "timestamp": 1234567890.123456,
+      "turnComplete": null,
+      "usageMetadata": {
+        "cacheTokensDetails": null,
+        "cachedContentTokenCount": null,
+        "candidatesTokenCount": null,
+        "candidatesTokensDetails": null,
+        "promptTokenCount": 76,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 76
+          }
+        ],
+        "thoughtsTokenCount": null,
+        "toolUsePromptTokenCount": null,
+        "toolUsePromptTokensDetails": null,
+        "totalTokenCount": 76,
+        "trafficType": null
+      }
+    },
+    {
+      "actions": {
+        "artifactDelta": {},
+        "escalate": null,
+        "requestedAuthConfigs": {},
+        "skipSummarization": null,
+        "stateDelta": {},
+        "transferToAgent": null
+      },
+      "author": "StateUpdatingAgent",
+      "branch": null,
+      "content": {
+        "parts": [
+          {
+            "codeExecutionResult": null,
+            "executableCode": null,
+            "fileData": null,
+            "functionCall": null,
+            "functionResponse": null,
+            "inlineData": null,
+            "text": "\n2\n",
+            "thought": null,
+            "thoughtSignature": null,
+            "videoMetadata": null
+          }
+        ],
+        "role": "model"
+      },
+      "customMetadata": null,
+      "errorCode": null,
+      "errorMessage": null,
+      "groundingMetadata": null,
+      "id": "event_3",
+      "interrupted": null,
+      "invocationId": "invocation_1",
+      "liveSessionResumptionUpdate": null,
+      "longRunningToolIds": null,
+      "partial": true,
+      "timestamp": 1234567890.123456,
+      "turnComplete": null,
+      "usageMetadata": {
+        "cacheTokensDetails": null,
+        "cachedContentTokenCount": null,
+        "candidatesTokenCount": null,
+        "candidatesTokensDetails": null,
+        "promptTokenCount": 76,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 76
+          }
+        ],
+        "thoughtsTokenCount": null,
+        "toolUsePromptTokenCount": null,
+        "toolUsePromptTokensDetails": null,
+        "totalTokenCount": 76,
+        "trafficType": null
+      }
+    },
+    {
+      "actions": {
+        "artifactDelta": {},
+        "escalate": null,
+        "requestedAuthConfigs": {},
+        "skipSummarization": null,
+        "stateDelta": {},
+        "transferToAgent": null
+      },
+      "author": "StateUpdatingAgent",
+      "branch": null,
+      "content": {
+        "parts": [
+          {
+            "codeExecutionResult": null,
+            "executableCode": null,
+            "fileData": null,
+            "functionCall": null,
+            "functionResponse": null,
+            "inlineData": null,
+            "text": "3\n4\n5\n6\n7\n8\n9\n10",
+            "thought": null,
+            "thoughtSignature": null,
+            "videoMetadata": null
+          }
+        ],
+        "role": "model"
+      },
+      "customMetadata": null,
+      "errorCode": null,
+      "errorMessage": null,
+      "groundingMetadata": null,
+      "id": "event_4",
+      "interrupted": null,
+      "invocationId": "invocation_1",
+      "liveSessionResumptionUpdate": null,
+      "longRunningToolIds": null,
+      "partial": true,
+      "timestamp": 1234567890.123456,
+      "turnComplete": null,
+      "usageMetadata": {
+        "cacheTokensDetails": null,
+        "cachedContentTokenCount": null,
+        "candidatesTokenCount": null,
+        "candidatesTokensDetails": null,
+        "promptTokenCount": 76,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 76
+          }
+        ],
+        "thoughtsTokenCount": null,
+        "toolUsePromptTokenCount": null,
+        "toolUsePromptTokensDetails": null,
+        "totalTokenCount": 76,
+        "trafficType": null
+      }
+    },
+    {
+      "actions": {
+        "artifactDelta": {},
+        "escalate": null,
+        "requestedAuthConfigs": {},
+        "skipSummarization": null,
+        "stateDelta": {},
+        "transferToAgent": null
+      },
+      "author": "StateUpdatingAgent",
+      "branch": null,
+      "content": {
+        "parts": [
+          {
+            "codeExecutionResult": null,
+            "executableCode": null,
+            "fileData": null,
+            "functionCall": null,
+            "functionResponse": null,
+            "inlineData": null,
+            "text": "\n11\n12\n13\n14\n15\n",
+            "thought": null,
+            "thoughtSignature": null,
+            "videoMetadata": null
+          }
+        ],
+        "role": "model"
+      },
+      "customMetadata": null,
+      "errorCode": null,
+      "errorMessage": null,
+      "groundingMetadata": null,
+      "id": "event_5",
+      "interrupted": null,
+      "invocationId": "invocation_1",
+      "liveSessionResumptionUpdate": null,
+      "longRunningToolIds": null,
+      "partial": true,
+      "timestamp": 1234567890.123456,
+      "turnComplete": null,
+      "usageMetadata": {
+        "cacheTokensDetails": null,
+        "cachedContentTokenCount": null,
+        "candidatesTokenCount": null,
+        "candidatesTokensDetails": null,
+        "promptTokenCount": 76,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 76
+          }
+        ],
+        "thoughtsTokenCount": null,
+        "toolUsePromptTokenCount": null,
+        "toolUsePromptTokensDetails": null,
+        "totalTokenCount": 76,
+        "trafficType": null
+      }
+    },
+    {
+      "actions": {
+        "artifactDelta": {},
+        "escalate": null,
+        "requestedAuthConfigs": {},
+        "skipSummarization": null,
+        "stateDelta": {},
+        "transferToAgent": null
+      },
+      "author": "StateUpdatingAgent",
+      "branch": null,
+      "content": {
+        "parts": [
+          {
+            "codeExecutionResult": null,
+            "executableCode": null,
+            "fileData": null,
+            "functionCall": null,
+            "functionResponse": null,
+            "inlineData": null,
+            "text": "16\n17\n18\n19\n20\n",
+            "thought": null,
+            "thoughtSignature": null,
+            "videoMetadata": null
+          }
+        ],
+        "role": "model"
+      },
+      "customMetadata": null,
+      "errorCode": null,
+      "errorMessage": null,
+      "groundingMetadata": null,
+      "id": "event_6",
+      "interrupted": null,
+      "invocationId": "invocation_1",
+      "liveSessionResumptionUpdate": null,
+      "longRunningToolIds": null,
+      "partial": true,
+      "timestamp": 1234567890.123456,
+      "turnComplete": null,
+      "usageMetadata": {
+        "cacheTokensDetails": null,
+        "cachedContentTokenCount": null,
+        "candidatesTokenCount": 51,
+        "candidatesTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 51
+          }
+        ],
+        "promptTokenCount": 74,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 74
+          }
+        ],
+        "thoughtsTokenCount": null,
+        "toolUsePromptTokenCount": null,
+        "toolUsePromptTokensDetails": null,
+        "totalTokenCount": 125,
+        "trafficType": null
+      }
+    },
+    {
+      "actions": {
+        "artifactDelta": {},
+        "escalate": null,
+        "requestedAuthConfigs": {},
+        "skipSummarization": null,
+        "stateDelta": {},
+        "transferToAgent": null
+      },
+      "author": "StateUpdatingAgent",
+      "branch": null,
+      "content": {
+        "parts": [
+          {
+            "codeExecutionResult": null,
+            "executableCode": null,
+            "fileData": null,
+            "functionCall": null,
+            "functionResponse": null,
+            "inlineData": null,
+            "text": "1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12\n13\n14\n15\n16\n17\n18\n19\n20\n",
+            "thought": null,
+            "thoughtSignature": null,
+            "videoMetadata": null
+          }
+        ],
+        "role": "model"
+      },
+      "customMetadata": null,
+      "errorCode": null,
+      "errorMessage": null,
+      "groundingMetadata": null,
+      "id": "event_7",
+      "interrupted": null,
+      "invocationId": "invocation_1",
+      "liveSessionResumptionUpdate": null,
+      "longRunningToolIds": null,
+      "partial": null,
+      "timestamp": 1234567890.123456,
+      "turnComplete": null,
+      "usageMetadata": {
+        "cacheTokensDetails": null,
+        "cachedContentTokenCount": null,
+        "candidatesTokenCount": 51,
+        "candidatesTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 51
+          }
+        ],
+        "promptTokenCount": 74,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 74
+          }
+        ],
+        "thoughtsTokenCount": null,
+        "toolUsePromptTokenCount": null,
+        "toolUsePromptTokensDetails": null,
+        "totalTokenCount": 125,
+        "trafficType": null
+      }
+    },
+    {
+      "actions": {
+        "artifactDelta": {},
+        "escalate": null,
+        "requestedAuthConfigs": {},
+        "skipSummarization": null,
+        "stateDelta": {
+          "processing_step": "completed"
+        },
+        "transferToAgent": null
+      },
+      "author": "StateUpdatingAgent",
+      "branch": null,
+      "content": null,
+      "customMetadata": null,
+      "errorCode": null,
+      "errorMessage": null,
+      "groundingMetadata": null,
+      "id": "event_8",
+      "interrupted": null,
+      "invocationId": "invocation_1",
+      "liveSessionResumptionUpdate": null,
+      "longRunningToolIds": null,
+      "partial": null,
+      "timestamp": 1234567890.123456,
+      "turnComplete": null,
+      "usageMetadata": null
+    }
+  ],
+  "events_count": 8,
+  "execution_end": "2024-01-01T00:00:01.000000",
+  "execution_start": "2024-01-01T00:00:00.000000",
+  "scenario_name": "scenario_streaming_message_with_states"
+}

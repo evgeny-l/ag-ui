@@ -205,7 +205,8 @@ async def run_simple_agent_scenario(
     app_name: str = "test_app",
     user_id: str = "test_user",
     session_id: str = "test_session",
-    session_state: Optional[Dict[str, Any]] = None
+    session_state: Optional[Dict[str, Any]] = None,
+    run_config: Optional['RunConfig'] = None
 ) -> None:
     """
     Common workflow for running a simple agent scenario with a single message.
@@ -218,6 +219,7 @@ async def run_simple_agent_scenario(
         user_id: User ID for the session
         session_id: Session ID
         session_state: Optional initial session state
+        run_config: Optional RunConfig for advanced configuration (e.g., streaming)
     """
     try:
         # Create session service and session
@@ -243,11 +245,15 @@ async def run_simple_agent_scenario(
         )
         
         # Run the agent and collect events
-        async for event in runner.run_async(
-            user_id=user_id,
-            session_id=session_id,
-            new_message=content
-        ):
+        run_kwargs = {
+            'user_id': user_id,
+            'session_id': session_id,
+            'new_message': content
+        }
+        if run_config is not None:
+            run_kwargs['run_config'] = run_config
+            
+        async for event in runner.run_async(**run_kwargs):
             # Collect the raw ADK event
             collector.collect_event(event)
             
@@ -278,7 +284,8 @@ async def run_in_memory_agent_scenario(
     app_name: str = "test_app",
     user_id: str = "test_user",
     session_id: str = "test_session",
-    session_state: Optional[Dict[str, Any]] = None
+    session_state: Optional[Dict[str, Any]] = None,
+    run_config: Optional['RunConfig'] = None
 ) -> None:
     """
     Common workflow for running an agent scenario using InMemoryRunner.
@@ -291,6 +298,7 @@ async def run_in_memory_agent_scenario(
         user_id: User ID for the session
         session_id: Session ID
         session_state: Optional initial session state
+        run_config: Optional RunConfig for advanced configuration (e.g., streaming)
     """
     try:
         # Use InMemoryRunner - it includes InMemorySessionService
@@ -306,11 +314,15 @@ async def run_in_memory_agent_scenario(
         )
         
         # Run the agent and collect events
-        async for event in runner.run_async(
-            user_id=user_id,
-            session_id=session_id,
-            new_message=types.Content(role="user", parts=[types.Part(text=user_message)])
-        ):
+        run_kwargs = {
+            'user_id': user_id,
+            'session_id': session_id,
+            'new_message': types.Content(role="user", parts=[types.Part(text=user_message)])
+        }
+        if run_config is not None:
+            run_kwargs['run_config'] = run_config
+            
+        async for event in runner.run_async(**run_kwargs):
             # Collect the raw ADK event
             collector.collect_event(event)
             
