@@ -4,12 +4,8 @@ This scenario uses pure Google ADK to create a simple math-answering agent.
 It captures all ADK events generated during the conversation for use as fixtures.
 """
 
-import logging
-
 from google.adk.agents.llm_agent import LlmAgent
 from runner_utils import run_simple_agent_scenario
-
-logger = logging.getLogger(__name__)
 
 
 async def run_scenario(collector) -> None:

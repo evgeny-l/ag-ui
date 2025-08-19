@@ -5,15 +5,12 @@ based on session state. The callback returns a direct response instead of
 letting the LLM agent process the message.
 """
 
-import logging
 from typing import Optional
 
 from google.genai import types
 from google.adk.agents.llm_agent import LlmAgent
 from google.adk.agents.callback_context import CallbackContext
 from runner_utils import run_in_memory_agent_scenario
-
-logger = logging.getLogger(__name__)
 
 
 def check_if_agent_should_run(callback_context: CallbackContext) -> Optional[types.Content]:
