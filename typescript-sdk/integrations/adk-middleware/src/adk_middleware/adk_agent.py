@@ -885,15 +885,17 @@ class ADKAgent:
 
                 final_response = adk_event.is_final_response()
                 has_content = adk_event.content and hasattr(adk_event.content, 'parts') and adk_event.content.parts
+                state_delta_event = final_response and adk_event.actions and hasattr(adk_event.actions, 'state_delta') and bool(adk_event.actions.state_delta)
+                final_text_response_event = final_response and has_content and not getattr(adk_event, 'partial', False)
 
-                if not final_response or (not adk_event.usage_metadata and has_content):
+                if not final_response or state_delta_event or final_text_response_event:
                     # Translate and emit events
                     async for ag_ui_event in event_translator.translate(
                         adk_event,
                         input.thread_id,
                         input.run_id
                     ):
-                        
+
                         logger.debug(f"Emitting event to queue: {type(ag_ui_event).__name__} (thread {input.thread_id}, queue size before: {event_queue.qsize()})")
                         await event_queue.put(ag_ui_event)
                         logger.debug(f"Event queued: {type(ag_ui_event).__name__} (thread {input.thread_id}, queue size after: {event_queue.qsize()})")

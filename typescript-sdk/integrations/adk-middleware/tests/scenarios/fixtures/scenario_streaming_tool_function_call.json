@@ -1,0 +1,154 @@
+{
+  "events": [
+    {
+      "author": "MagicToolAgent",
+      "content": {
+        "parts": [
+          {
+            "functionCall": {
+              "args": {
+                "first_number": 5,
+                "second_number": 10
+              },
+              "id": "function_call_1",
+              "name": "magic_with_two_numbers"
+            }
+          }
+        ],
+        "role": "model"
+      },
+      "id": "event_1",
+      "invocationId": "invocation_1",
+      "timestamp": 1234567890.123456,
+      "usageMetadata": {
+        "candidatesTokenCount": 15,
+        "candidatesTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 15
+          }
+        ],
+        "promptTokenCount": 158,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 158
+          }
+        ],
+        "totalTokenCount": 173
+      }
+    },
+    {
+      "author": "MagicToolAgent",
+      "content": {
+        "parts": [
+          {
+            "functionResponse": {
+              "id": "function_call_1",
+              "name": "magic_with_two_numbers",
+              "response": {
+                "result": 15
+              }
+            }
+          }
+        ],
+        "role": "user"
+      },
+      "id": "event_2",
+      "invocationId": "invocation_1",
+      "timestamp": 1234567890.123456
+    },
+    {
+      "author": "MagicToolAgent",
+      "content": {
+        "parts": [
+          {
+            "text": "The magical result is"
+          }
+        ],
+        "role": "model"
+      },
+      "id": "event_3",
+      "invocationId": "invocation_1",
+      "partial": true,
+      "timestamp": 1234567890.123456,
+      "usageMetadata": {
+        "promptTokenCount": 244,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 244
+          }
+        ],
+        "totalTokenCount": 244
+      }
+    },
+    {
+      "author": "MagicToolAgent",
+      "content": {
+        "parts": [
+          {
+            "text": " 15.\n"
+          }
+        ],
+        "role": "model"
+      },
+      "id": "event_4",
+      "invocationId": "invocation_1",
+      "partial": true,
+      "timestamp": 1234567890.123456,
+      "usageMetadata": {
+        "candidatesTokenCount": 9,
+        "candidatesTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 9
+          }
+        ],
+        "promptTokenCount": 182,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 182
+          }
+        ],
+        "totalTokenCount": 191
+      }
+    },
+    {
+      "author": "MagicToolAgent",
+      "content": {
+        "parts": [
+          {
+            "text": "The magical result is 15.\n"
+          }
+        ],
+        "role": "model"
+      },
+      "id": "event_5",
+      "invocationId": "invocation_1",
+      "timestamp": 1234567890.123456,
+      "usageMetadata": {
+        "candidatesTokenCount": 9,
+        "candidatesTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 9
+          }
+        ],
+        "promptTokenCount": 182,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 182
+          }
+        ],
+        "totalTokenCount": 191
+      }
+    }
+  ],
+  "events_count": 5,
+  "execution_end": "2024-01-01T00:00:01.000000",
+  "execution_start": "2024-01-01T00:00:00.000000",
+  "scenario_name": "scenario_streaming_tool_function_call"
+}

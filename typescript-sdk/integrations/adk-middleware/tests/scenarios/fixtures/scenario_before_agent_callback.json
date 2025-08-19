@@ -1,0 +1,22 @@
+{
+  "events": [
+    {
+      "author": "ControlledAgent",
+      "content": {
+        "parts": [
+          {
+            "text": "Skipped by before_agent_callback due to state condition."
+          }
+        ],
+        "role": "model"
+      },
+      "id": "event_1",
+      "invocationId": "invocation_1",
+      "timestamp": 1234567890.123456
+    }
+  ],
+  "events_count": 1,
+  "execution_end": "2024-01-01T00:00:01.000000",
+  "execution_start": "2024-01-01T00:00:00.000000",
+  "scenario_name": "scenario_before_agent_callback"
+}

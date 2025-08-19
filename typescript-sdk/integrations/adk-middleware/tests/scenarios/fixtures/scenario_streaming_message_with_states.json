@@ -1,0 +1,143 @@
+{
+  "events": [
+    {
+      "actions": {
+        "stateDelta": {
+          "processing_step": "started"
+        }
+      },
+      "author": "StateUpdatingAgent",
+      "id": "event_1",
+      "invocationId": "invocation_1",
+      "timestamp": 1234567890.123456
+    },
+    {
+      "author": "StateUpdatingAgent",
+      "content": {
+        "parts": [
+          {
+            "text": "1"
+          }
+        ],
+        "role": "model"
+      },
+      "id": "event_2",
+      "invocationId": "invocation_1",
+      "partial": true,
+      "timestamp": 1234567890.123456,
+      "usageMetadata": {
+        "promptTokenCount": 75,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 75
+          }
+        ],
+        "totalTokenCount": 75
+      }
+    },
+    {
+      "author": "StateUpdatingAgent",
+      "content": {
+        "parts": [
+          {
+            "text": "\n2\n"
+          }
+        ],
+        "role": "model"
+      },
+      "id": "event_3",
+      "invocationId": "invocation_1",
+      "partial": true,
+      "timestamp": 1234567890.123456,
+      "usageMetadata": {
+        "promptTokenCount": 75,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 75
+          }
+        ],
+        "totalTokenCount": 75
+      }
+    },
+    {
+      "author": "StateUpdatingAgent",
+      "content": {
+        "parts": [
+          {
+            "text": "3\n4\n5\n"
+          }
+        ],
+        "role": "model"
+      },
+      "id": "event_4",
+      "invocationId": "invocation_1",
+      "partial": true,
+      "timestamp": 1234567890.123456,
+      "usageMetadata": {
+        "candidatesTokenCount": 10,
+        "candidatesTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 10
+          }
+        ],
+        "promptTokenCount": 73,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 73
+          }
+        ],
+        "totalTokenCount": 83
+      }
+    },
+    {
+      "author": "StateUpdatingAgent",
+      "content": {
+        "parts": [
+          {
+            "text": "1\n2\n3\n4\n5\n"
+          }
+        ],
+        "role": "model"
+      },
+      "id": "event_5",
+      "invocationId": "invocation_1",
+      "timestamp": 1234567890.123456,
+      "usageMetadata": {
+        "candidatesTokenCount": 10,
+        "candidatesTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 10
+          }
+        ],
+        "promptTokenCount": 73,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 73
+          }
+        ],
+        "totalTokenCount": 83
+      }
+    },
+    {
+      "actions": {
+        "stateDelta": {
+          "processing_step": "completed"
+        }
+      },
+      "author": "StateUpdatingAgent",
+      "id": "event_6",
+      "invocationId": "invocation_1",
+      "timestamp": 1234567890.123456
+    }
+  ],
+  "events_count": 6,
+  "execution_end": "2024-01-01T00:00:01.000000",
+  "execution_start": "2024-01-01T00:00:00.000000",
+  "scenario_name": "scenario_streaming_message_with_states"
+}
