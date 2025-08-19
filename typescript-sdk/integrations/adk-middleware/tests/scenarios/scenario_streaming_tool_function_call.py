@@ -8,7 +8,6 @@ force function calling behavior.
 
 import logging
 
-from google.genai import types
 from google.adk.agents.llm_agent import LlmAgent
 from google.adk.runners import RunConfig
 from google.adk.agents.run_config import StreamingMode

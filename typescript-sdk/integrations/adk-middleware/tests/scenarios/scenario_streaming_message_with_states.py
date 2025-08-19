@@ -57,7 +57,7 @@ async def run_scenario(collector) -> None:
     # Use in-memory runner workflow with streaming config
     await run_in_memory_agent_scenario(
         agent=state_updating_agent,
-        user_message="Count from 1 to 20",
+        user_message="Count from 1 to 5",
         collector=collector,
         app_name="state_update_test_app",
         user_id="test_user_003",

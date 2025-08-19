@@ -1,22 +1,10 @@
 {
   "events": [
     {
-      "actions": {
-        "artifactDelta": {},
-        "escalate": null,
-        "requestedAuthConfigs": {},
-        "skipSummarization": null,
-        "stateDelta": {},
-        "transferToAgent": null
-      },
       "author": "MagicToolAgent",
-      "branch": null,
       "content": {
         "parts": [
           {
-            "codeExecutionResult": null,
-            "executableCode": null,
-            "fileData": null,
             "functionCall": {
               "args": {
                 "first_number": 5,
@@ -24,32 +12,15 @@
               },
               "id": "function_call_1",
               "name": "magic_with_two_numbers"
-            },
-            "functionResponse": null,
-            "inlineData": null,
-            "text": null,
-            "thought": null,
-            "thoughtSignature": null,
-            "videoMetadata": null
+            }
           }
         ],
         "role": "model"
       },
-      "customMetadata": null,
-      "errorCode": null,
-      "errorMessage": null,
-      "groundingMetadata": null,
       "id": "event_1",
-      "interrupted": null,
       "invocationId": "invocation_1",
-      "liveSessionResumptionUpdate": null,
-      "longRunningToolIds": [],
-      "partial": null,
       "timestamp": 1234567890.123456,
-      "turnComplete": null,
       "usageMetadata": {
-        "cacheTokensDetails": null,
-        "cachedContentTokenCount": null,
         "candidatesTokenCount": 15,
         "candidatesTokensDetails": [
           {
@@ -64,108 +35,44 @@
             "tokenCount": 158
           }
         ],
-        "thoughtsTokenCount": null,
-        "toolUsePromptTokenCount": null,
-        "toolUsePromptTokensDetails": null,
-        "totalTokenCount": 173,
-        "trafficType": null
+        "totalTokenCount": 173
       }
     },
     {
-      "actions": {
-        "artifactDelta": {},
-        "escalate": null,
-        "requestedAuthConfigs": {},
-        "skipSummarization": null,
-        "stateDelta": {},
-        "transferToAgent": null
-      },
       "author": "MagicToolAgent",
-      "branch": null,
       "content": {
         "parts": [
           {
-            "codeExecutionResult": null,
-            "executableCode": null,
-            "fileData": null,
-            "functionCall": null,
             "functionResponse": {
               "id": "function_call_1",
               "name": "magic_with_two_numbers",
               "response": {
                 "result": 15
-              },
-              "scheduling": null,
-              "willContinue": null
-            },
-            "inlineData": null,
-            "text": null,
-            "thought": null,
-            "thoughtSignature": null,
-            "videoMetadata": null
+              }
+            }
           }
         ],
         "role": "user"
       },
-      "customMetadata": null,
-      "errorCode": null,
-      "errorMessage": null,
-      "groundingMetadata": null,
       "id": "event_2",
-      "interrupted": null,
       "invocationId": "invocation_1",
-      "liveSessionResumptionUpdate": null,
-      "longRunningToolIds": null,
-      "partial": null,
-      "timestamp": 1234567890.123456,
-      "turnComplete": null,
-      "usageMetadata": null
+      "timestamp": 1234567890.123456
     },
     {
-      "actions": {
-        "artifactDelta": {},
-        "escalate": null,
-        "requestedAuthConfigs": {},
-        "skipSummarization": null,
-        "stateDelta": {},
-        "transferToAgent": null
-      },
       "author": "MagicToolAgent",
-      "branch": null,
       "content": {
         "parts": [
           {
-            "codeExecutionResult": null,
-            "executableCode": null,
-            "fileData": null,
-            "functionCall": null,
-            "functionResponse": null,
-            "inlineData": null,
-            "text": "The magic",
-            "thought": null,
-            "thoughtSignature": null,
-            "videoMetadata": null
+            "text": "The magical result is"
           }
         ],
         "role": "model"
       },
-      "customMetadata": null,
-      "errorCode": null,
-      "errorMessage": null,
-      "groundingMetadata": null,
       "id": "event_3",
-      "interrupted": null,
       "invocationId": "invocation_1",
-      "liveSessionResumptionUpdate": null,
-      "longRunningToolIds": null,
       "partial": true,
       "timestamp": 1234567890.123456,
-      "turnComplete": null,
       "usageMetadata": {
-        "cacheTokensDetails": null,
-        "cachedContentTokenCount": null,
-        "candidatesTokenCount": null,
-        "candidatesTokensDetails": null,
         "promptTokenCount": 244,
         "promptTokensDetails": [
           {
@@ -173,61 +80,29 @@
             "tokenCount": 244
           }
         ],
-        "thoughtsTokenCount": null,
-        "toolUsePromptTokenCount": null,
-        "toolUsePromptTokensDetails": null,
-        "totalTokenCount": 244,
-        "trafficType": null
+        "totalTokenCount": 244
       }
     },
     {
-      "actions": {
-        "artifactDelta": {},
-        "escalate": null,
-        "requestedAuthConfigs": {},
-        "skipSummarization": null,
-        "stateDelta": {},
-        "transferToAgent": null
-      },
       "author": "MagicToolAgent",
-      "branch": null,
       "content": {
         "parts": [
           {
-            "codeExecutionResult": null,
-            "executableCode": null,
-            "fileData": null,
-            "functionCall": null,
-            "functionResponse": null,
-            "inlineData": null,
-            "text": " tool resulted in 15.\n",
-            "thought": null,
-            "thoughtSignature": null,
-            "videoMetadata": null
+            "text": " 15.\n"
           }
         ],
         "role": "model"
       },
-      "customMetadata": null,
-      "errorCode": null,
-      "errorMessage": null,
-      "groundingMetadata": null,
       "id": "event_4",
-      "interrupted": null,
       "invocationId": "invocation_1",
-      "liveSessionResumptionUpdate": null,
-      "longRunningToolIds": null,
       "partial": true,
       "timestamp": 1234567890.123456,
-      "turnComplete": null,
       "usageMetadata": {
-        "cacheTokensDetails": null,
-        "cachedContentTokenCount": null,
-        "candidatesTokenCount": 10,
+        "candidatesTokenCount": 9,
         "candidatesTokensDetails": [
           {
             "modality": "TEXT",
-            "tokenCount": 10
+            "tokenCount": 9
           }
         ],
         "promptTokenCount": 182,
@@ -237,61 +112,28 @@
             "tokenCount": 182
           }
         ],
-        "thoughtsTokenCount": null,
-        "toolUsePromptTokenCount": null,
-        "toolUsePromptTokensDetails": null,
-        "totalTokenCount": 192,
-        "trafficType": null
+        "totalTokenCount": 191
       }
     },
     {
-      "actions": {
-        "artifactDelta": {},
-        "escalate": null,
-        "requestedAuthConfigs": {},
-        "skipSummarization": null,
-        "stateDelta": {},
-        "transferToAgent": null
-      },
       "author": "MagicToolAgent",
-      "branch": null,
       "content": {
         "parts": [
           {
-            "codeExecutionResult": null,
-            "executableCode": null,
-            "fileData": null,
-            "functionCall": null,
-            "functionResponse": null,
-            "inlineData": null,
-            "text": "The magic tool resulted in 15.\n",
-            "thought": null,
-            "thoughtSignature": null,
-            "videoMetadata": null
+            "text": "The magical result is 15.\n"
           }
         ],
         "role": "model"
       },
-      "customMetadata": null,
-      "errorCode": null,
-      "errorMessage": null,
-      "groundingMetadata": null,
       "id": "event_5",
-      "interrupted": null,
       "invocationId": "invocation_1",
-      "liveSessionResumptionUpdate": null,
-      "longRunningToolIds": null,
-      "partial": null,
       "timestamp": 1234567890.123456,
-      "turnComplete": null,
       "usageMetadata": {
-        "cacheTokensDetails": null,
-        "cachedContentTokenCount": null,
-        "candidatesTokenCount": 10,
+        "candidatesTokenCount": 9,
         "candidatesTokensDetails": [
           {
             "modality": "TEXT",
-            "tokenCount": 10
+            "tokenCount": 9
           }
         ],
         "promptTokenCount": 182,
@@ -301,11 +143,7 @@
             "tokenCount": 182
           }
         ],
-        "thoughtsTokenCount": null,
-        "toolUsePromptTokenCount": null,
-        "toolUsePromptTokensDetails": null,
-        "totalTokenCount": 192,
-        "trafficType": null
+        "totalTokenCount": 191
       }
     }
   ],

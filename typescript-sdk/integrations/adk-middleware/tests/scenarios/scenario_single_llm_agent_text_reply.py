@@ -13,7 +13,9 @@ logger = logging.getLogger(__name__)
 
 
 async def run_scenario(collector) -> None:
-    """Run the single LLM agent text reply scenario using pure Google ADK."""
+    """Run the single LLM agent text reply scenario using pure Google ADK.
+
+    We don't have streaming here, so it would be simple one event request->response."""
 
     # Create a simple ADK agent for basic math
     math_agent = LlmAgent(

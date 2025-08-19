@@ -1,48 +1,19 @@
 {
   "events": [
     {
-      "actions": {
-        "artifactDelta": {},
-        "escalate": null,
-        "requestedAuthConfigs": {},
-        "skipSummarization": null,
-        "stateDelta": {},
-        "transferToAgent": null
-      },
       "author": "math_assistant",
-      "branch": null,
       "content": {
         "parts": [
           {
-            "codeExecutionResult": null,
-            "executableCode": null,
-            "fileData": null,
-            "functionCall": null,
-            "functionResponse": null,
-            "inlineData": null,
-            "text": "2 + 2 = 4\n",
-            "thought": null,
-            "thoughtSignature": null,
-            "videoMetadata": null
+            "text": "2 + 2 = 4\n"
           }
         ],
         "role": "model"
       },
-      "customMetadata": null,
-      "errorCode": null,
-      "errorMessage": null,
-      "groundingMetadata": null,
       "id": "event_1",
-      "interrupted": null,
       "invocationId": "invocation_1",
-      "liveSessionResumptionUpdate": null,
-      "longRunningToolIds": null,
-      "partial": null,
       "timestamp": 1234567890.123456,
-      "turnComplete": null,
       "usageMetadata": {
-        "cacheTokensDetails": null,
-        "cachedContentTokenCount": null,
         "candidatesTokenCount": 8,
         "candidatesTokensDetails": [
           {
@@ -57,11 +28,7 @@
             "tokenCount": 37
           }
         ],
-        "thoughtsTokenCount": null,
-        "toolUsePromptTokenCount": null,
-        "toolUsePromptTokensDetails": null,
-        "totalTokenCount": 45,
-        "trafficType": null
+        "totalTokenCount": 45
       }
     }
   ],

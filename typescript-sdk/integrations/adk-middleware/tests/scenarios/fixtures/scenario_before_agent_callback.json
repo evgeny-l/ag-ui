@@ -1,46 +1,18 @@
 {
   "events": [
     {
-      "actions": {
-        "artifactDelta": {},
-        "escalate": null,
-        "requestedAuthConfigs": {},
-        "skipSummarization": null,
-        "stateDelta": {},
-        "transferToAgent": null
-      },
       "author": "ControlledAgent",
-      "branch": null,
       "content": {
         "parts": [
           {
-            "codeExecutionResult": null,
-            "executableCode": null,
-            "fileData": null,
-            "functionCall": null,
-            "functionResponse": null,
-            "inlineData": null,
-            "text": "Skipped by before_agent_callback due to state condition.",
-            "thought": null,
-            "thoughtSignature": null,
-            "videoMetadata": null
+            "text": "Skipped by before_agent_callback due to state condition."
           }
         ],
         "role": "model"
       },
-      "customMetadata": null,
-      "errorCode": null,
-      "errorMessage": null,
-      "groundingMetadata": null,
       "id": "event_1",
-      "interrupted": null,
       "invocationId": "invocation_1",
-      "liveSessionResumptionUpdate": null,
-      "longRunningToolIds": null,
-      "partial": null,
-      "timestamp": 1234567890.123456,
-      "turnComplete": null,
-      "usageMetadata": null
+      "timestamp": 1234567890.123456
     }
   ],
   "events_count": 1,

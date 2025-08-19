@@ -234,6 +234,121 @@ async def run_scenario(collector) -> None:
 
 **Note**: The runner automatically detects if `run_scenario` is async or sync and handles execution accordingly.
 
+## Writing Tests
+
+### Test Structure Guidelines
+
+Tests should be **clean, minimal, and self-explanatory**. Follow the pattern from `test_scenario_streaming_message_with_states.py`:
+
+#### **1. Clean Test Structure**
+```python
+#!/usr/bin/env python
+"""Test description - one line explaining what's being tested."""
+
+import pytest
+import sys
+from pathlib import Path
+
+from ag_ui.core import EventType
+
+sys.path.append(str(Path(__file__).parent / "scenarios"))
+from runner_utils import run_fixture_through_translator, compare_ag_ui_events
+
+
+class TestScenarioName:
+    """Test class description."""
+    
+    @pytest.mark.asyncio
+    async def test_scenario_name_fixture(self):
+        """Test that fixture produces expected AG-UI events."""
+        
+        expected_events = [
+            {"type": EventType.STATE_DELTA, "path": "/key", "value": "value"},
+            {"type": EventType.TEXT_MESSAGE_START},
+            {"type": EventType.TEXT_MESSAGE_CONTENT, "delta": "text"},
+            {"type": EventType.TEXT_MESSAGE_END}
+        ]
+        
+        actual_events = await run_fixture_through_translator("scenario_fixture_file_name.json")
+        compare_ag_ui_events(actual_events, expected_events)
+```
+
+#### **2. No Excessive Comments**
+- **Don't comment obvious one-line actions** like `fixture_data = load_scenario_fixture(...)`
+- **Don't explain self-explanatory code** - the test structure is clear
+- **Do document** complex event expectations or non-obvious test logic
+- **Keep docstrings brief** - one line explaining the test purpose
+
+#### **3. Expected Events Format**
+- Use **clear, predictable event sequences**
+- Include **only essential properties** for each event type
+- **State deltas**: `{"type": EventType.STATE_DELTA, "path": "/key", "value": "value"}`
+- **Text content**: `{"type": EventType.TEXT_MESSAGE_CONTENT, "delta": "text"}`
+- **Tool calls**: `{"type": EventType.TOOL_CALL_START, "tool_call_name": "function_name"}`
+
+#### **4. Test Naming**
+- **File**: `test_scenario_descriptive_name.py`
+- **Class**: `TestScenarioDescriptiveName`
+- **Method**: `test_scenario_name_fixture`
+- **Match scenario file**: `scenario_descriptive_name.py`
+
+#### **5. What NOT to Do**
+❌ **Over-commenting**:
+```python
+# Define what events we expect to see
+expected_events = [...]
+
+# Run the fixture through the translator to get actual events
+actual_events = await run_fixture_through_translator("scenario_name.json")
+
+# Compare the actual events with expected events
+compare_ag_ui_events(actual_events, expected_events)
+```
+
+✅ **Clean and minimal**:
+```python
+expected_events = [...]
+actual_events = await run_fixture_through_translator("scenario_name.json")
+compare_ag_ui_events(actual_events, expected_events)
+```
+
+#### **6. For Future LLM Requests**
+When asking an LLM to write tests:
+- Reference `test_scenario_streaming_message_with_states.py` as the gold standard
+- Emphasize "no excessive comments for self-explanatory actions"
+- Request "clean, minimal structure following the example pattern"
+- Specify expected event types and their essential properties only
+
+## Event Mocking Implementation
+
+### MockEventFromFixture Class
+
+The `MockEventFromFixture` class in `runner_utils.py` provides proper Event mocking that inherits from the original ADK `Event` class. This ensures all original Event methods work correctly, including:
+
+- **is_final_response()**: Works automatically based on event properties (no manual override needed)
+- **get_function_calls()**: Properly extracts function calls from content parts
+- **get_function_responses()**: Properly extracts function responses from content parts
+- **has_trailing_code_execution_result()**: Checks for trailing code execution results
+
+### Key Benefits
+
+- **Original method behavior**: All Event methods work as designed by ADK
+- **Automatic property computation**: No need to manually set computed properties
+- **Type safety**: Full compatibility with ADK Event class and its methods
+- **Fixture-driven**: Loads all data from fixture files with proper type conversion
+
+### Usage
+
+```python
+# Simplified API - pass fixture filename directly
+actual_events = await run_fixture_through_translator("scenario_name.json")
+compare_ag_ui_events(actual_events, expected_events)
+
+# Or load fixture data explicitly if needed  
+fixture_data = load_scenario_fixture("scenario_name.json") 
+actual_events = await run_fixture_through_translator(fixture_data)
+```
+
 ## Architecture
 
 - **runner_utils.py**: Common utilities and workflow functions
