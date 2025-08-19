@@ -62,10 +62,10 @@ class TestCommonLLMScenarios:
         """Test streaming LLM responses with function tool usage."""
         
         expected_events = [
-            {"type": EventType.TOOL_CALL_START, "tool_call_name": "magic_with_two_numbers"},
-            {"type": EventType.TOOL_CALL_ARGS, "delta": '{"first_number": 5, "second_number": 10}'},
-            {"type": EventType.TOOL_CALL_END},
-            {"type": EventType.TOOL_CALL_RESULT},
+            {"type": EventType.TOOL_CALL_START, "tool_call_name": "magic_with_two_numbers", "tool_call_id": "function_call_1"},
+            {"type": EventType.TOOL_CALL_ARGS, "delta": '{"first_number": 5, "second_number": 10}', "tool_call_id": "function_call_1"},
+            {"type": EventType.TOOL_CALL_END, "tool_call_id": "function_call_1"},
+            {"type": EventType.TOOL_CALL_RESULT, "tool_call_id": "function_call_1", "content": '{"result": 15}'},
             {"type": EventType.TEXT_MESSAGE_START},
             {"type": EventType.TEXT_MESSAGE_CONTENT, "delta": "The magical result is"},
             {"type": EventType.TEXT_MESSAGE_CONTENT, "delta": " 15.\n"},

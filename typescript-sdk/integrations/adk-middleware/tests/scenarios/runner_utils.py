@@ -462,10 +462,24 @@ def compare_ag_ui_events(actual_events, expected_events):
         elif expected["type"] == EventType.TOOL_CALL_START:
             if "tool_call_name" in expected:
                 assert actual.tool_call_name == expected["tool_call_name"], f"Event {i}: expected tool_call_name {expected['tool_call_name']}, got {actual.tool_call_name}"
+            if "tool_call_id" in expected:
+                assert actual.tool_call_id == expected["tool_call_id"], f"Event {i}: expected tool_call_id {expected['tool_call_id']}, got {actual.tool_call_id}"
         
         elif expected["type"] == EventType.TOOL_CALL_ARGS:
             if "delta" in expected:
                 assert actual.delta == expected["delta"], f"Event {i}: expected args delta {expected['delta']}, got {actual.delta}"
+            if "tool_call_id" in expected:
+                assert actual.tool_call_id == expected["tool_call_id"], f"Event {i}: expected tool_call_id {expected['tool_call_id']}, got {actual.tool_call_id}"
+        
+        elif expected["type"] == EventType.TOOL_CALL_END:
+            if "tool_call_id" in expected:
+                assert actual.tool_call_id == expected["tool_call_id"], f"Event {i}: expected tool_call_id {expected['tool_call_id']}, got {actual.tool_call_id}"
+        
+        elif expected["type"] == EventType.TOOL_CALL_RESULT:
+            if "tool_call_id" in expected:
+                assert actual.tool_call_id == expected["tool_call_id"], f"Event {i}: expected tool_call_id {expected['tool_call_id']}, got {actual.tool_call_id}"
+            if "content" in expected:
+                assert actual.content == expected["content"], f"Event {i}: expected content {expected['content']}, got {actual.content}"
     
     # Now check event count (after comparing individual events)
     if len(actual_events) != len(expected_events):
