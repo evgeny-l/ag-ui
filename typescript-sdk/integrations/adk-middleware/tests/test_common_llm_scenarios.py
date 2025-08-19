@@ -20,7 +20,7 @@ class TestCommonLLMScenarios:
         
         expected_events = [
             {"type": EventType.TEXT_MESSAGE_START},
-            {"type": EventType.TEXT_MESSAGE_CONTENT, "delta": "2 + 2 = 4"},
+            {"type": EventType.TEXT_MESSAGE_CONTENT, "delta": "2 + 2 = 4\n"},
             {"type": EventType.TEXT_MESSAGE_END}
         ]
         
